@@ -1,0 +1,34 @@
+
+picprep : args.o param.o Logger.o ProcessDefault.o ProcessScaleAbsolute.o ProcessFormat.o ProcessScaleRatio.o ProcessBPP.o FileList.o FileInfo.o
+	g++ -I ../lib/FreeImage/Dist -o ../build/picprep common/picprep.cpp args.o param.o Logger.o ProcessDefault.o ProcessFormat.o ProcessScaleAbsolute.o ProcessScaleRatio.o ProcessBPP.o FileInfo.o FileList.o ../lib/FreeImage/Dist/libfreeimage.a
+
+
+ProcessDefault.o :
+	g++ -c common/ProcessDefault.cpp
+
+ProcessScaleAbsolute.o :
+	g++ -I ../lib/FreeImage/Dist -c common/ProcessScaleAbsolute.cpp
+
+ProcessScaleRatio.o :
+	g++ -I ../lib/FreeImage/Dist -c common/ProcessScaleRatio.cpp
+
+ProcessFormat.o :
+	g++ -I ../lib/FreeImage/Dist -c common/ProcessFormat.cpp
+
+ProcessBPP.o :
+	g++ -I ../lib/FreeImage/Dist -c common/ProcessBPP.cpp
+
+FileList.o : linux/FileList.cpp linux/FileList.h
+	g++ -c linux/FileList.cpp
+
+FileInfo.o :
+	g++ -c linux/FileInfo.cpp
+
+Logger.o :
+	g++ -c common/Logger.cpp common/Logger.h
+
+args.o :
+	g++ -c common/args.cpp
+
+param.o :
+	g++ -c common/param.cpp

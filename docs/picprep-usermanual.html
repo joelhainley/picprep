@@ -1,0 +1,113 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>picprep</title><meta name="generator" content="DocBook XSL Stylesheets V1.64.1"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="d0e2"></a>picprep</h1></div><div><h3 class="subtitle"><i>picture/image preparation application</i></h3></div><div><div class="author"><h3 class="author"><span class="firstname">Joel</span> <span class="surname">Hainley</span></h3><div class="affiliation"><div class="address"><p><tt class="email">&lt;<a href="mailto:jhainley-at-myndkryme-dot-com">jhainley-at-myndkryme-dot-com</a>&gt;</tt></p></div></div></div></div><div><p class="copyright">Copyright &copy; 2004 myndKryme Laboratories</p></div><div><p class="pubdate">March 11, 2004</p></div></div><div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#name">
+            NAME
+        </a></span></dt><dt><span class="section"><a href="#synopsis">
+            SYNOPSIS
+        </a></span></dt><dt><span class="section"><a href="#availability">
+            AVAILABILITY
+        </a></span></dt><dt><span class="section"><a href="#description">
+			DESCRIPTION
+		</a></span></dt><dt><span class="section"><a href="#commands">
+            COMMANDS
+        </a></span></dt><dt><span class="section"><a href="#parameters">
+            PARAMETERS
+        </a></span></dt><dt><span class="section"><a href="#examples">
+            EXAMPLES
+        </a></span></dt><dt><span class="section"><a href="#notes">
+            NOTES
+        </a></span></dt><dt><span class="section"><a href="#bugs">
+            BUGS
+        </a></span></dt><dt><span class="section"><a href="#website">
+            WEBSITE
+        </a></span></dt><dt><span class="section"><a href="#credits">
+            ACKNOWLEDGEMENTS
+        </a></span></dt></dl></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="name"></a>
+            NAME
+        </h2></div></div><div></div></div><p>
+            picprep - image scaling/conversion/resampling application        
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="synopsis"></a>
+            SYNOPSIS
+        </h2></div></div><div></div></div><pre class="programlisting">
+        picprep [apfb?]
+            
+        picprep a w=numVal h=numVal src=searchPat dest=searchPat append=sometext
+
+        picprep p p=numVal src=searchPat dest=searchPat append=sometext
+        
+        picprep f src=searchPat dest=searchPat append=sometext
+            
+        picprep b bpp=[8|16|24|32] src=searchPath dest=searchPath append=sometext
+        
+        picprep ?
+        </pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="availability"></a>
+            AVAILABILITY
+        </h2></div></div><div></div></div><p>
+                this application is win32 only, if you would like this ported to another platform, please feel free to contact us
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="description"></a>
+			DESCRIPTION
+		</h2></div></div><div></div></div><p>
+		    the picture prep application is a small graphics utility aimed at quickly prepping large directories of image files. It allows the user to change the bitdepth, scale the images by absolute pixel size, or percentages, as well as being able to convert the image to any of several popular file formats. The application allows a user to drop the newly modified files in a new directory, or to append characters onto the newly created files, preserving the original images.
+		</p><p>
+            Note : the original purpose of this application was to scale directories of images that came off of my digital camera to make them easier to drop into digital photo albums that I was creating with Album Foundry. I found that the original pictures coming out of the camera were always at least twice as big as they needed to be for my needs. I already had experience working with the FreeImage library so I just used this library to put this application together.
+		</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="commands"></a>
+            COMMANDS
+        </h2></div></div><div></div></div><p>
+            a - instructs picprep to size the new image using an absolute value in pixels, the parameters w, h, src, dest must all be present, the parameters append, and log, are optional. Please refer to the parameters section to see more details about the individual parameters.
+        </p><p>
+            b - instructs picprep to store the new image in the specified bitdepth. This allows the user to take 32 bit images and convert them to 24, 16, or 8 bit images, allowing for a space savings. The parameters bpp, src, and dest must all be present. The parameters log, and append are optional. Please refer the parameters section for more detail about the individual parameters.
+        </p><p>
+            f - instructs picprep to convert the source image into a new file format. This allows the user to easily move images between several popular web formats without the need to open up cumbersome paint programs to do simple image conversion. The parameters src and dest are required, the append and log parameters are optional.
+        </p><p>
+            p - instructs picprep to size the new image using a percentage of the source image, the application can enlarge or reduce the size of the images. The p, src, and dest parameters are required, the append and log parameters are optional.
+        </p><p>
+        	? - displays application help
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="parameters"></a>
+            PARAMETERS
+        </h2></div></div><div></div></div><p>
+            append -  characters to append to the newly created file
+        </p><p>
+            bpp - the desired bitdepth for the new photos
+        </p><p>
+            dest - either a specific file name, or a specific directory ( if a directory that is different from the source directory is specified, and no append parameter is specified, the files will be saved with the same name as the source filename, if the directories are the same, and no append parameter has been specified, the application will display an error to the user and exit )
+        </p><p>
+            h - the desired height ( in pixels ) for the finished photo
+        </p><p>
+            p - the percentage to scale the picture
+        </p><p>
+            src - either a specific file name, or a valid wild-card sequence for files in a specific directory, the application will attempt to open the files based upon their extensions. if a format cannot be determined from the extension, or the file cannot be opened, the application will report an error, logging it to the log file if one has been specified, and continue to process
+        </p><p>
+            w - the desired width ( in pixels ) for the finished photo
+        </p><p>
+        	? - if used as a parameter to a particular process it will display the help for that process. Use this parameter by itself at any point in the process parameters to see the help for that process
+        </p><p>
+        
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="examples"></a>
+            EXAMPLES
+        </h2></div></div><div></div></div><p>
+        converts all files to 24bpp images, appending 24 to the end of each filename, it converts all images that it understands in the directory.
+        </p><pre class="programlisting">    picprep b bpp=24 src=*.* dest=*.* append=24
+        </pre><p>    
+        </p><p>
+        converts all jpeg files to png files appending new to the name of the new files.
+        </p><pre class="programlisting">    picprep f src=*.jpeg dest=*.png append=new
+        </pre><p>    
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="notes"></a>
+            NOTES
+        </h2></div></div><div></div></div><p>
+            all commands and parameters are case sensitive.
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="bugs"></a>
+            BUGS
+        </h2></div></div><div></div></div><p>
+            no known bugs...yet ;-)
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="website"></a>
+            WEBSITE
+        </h2></div></div><div></div></div><p>
+            www.myndkryme.com/product-picprep.html
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="credits"></a>
+            ACKNOWLEDGEMENTS
+        </h2></div></div><div></div></div><p>
+			This software uses the FreeImage open source image library. See http://freeimage.sourceforge.net for details. FreeImage is used under the FIPL, version 1.0. Please see the freeimage-license.txt file included with the picprep distribution files for more information.
+        </p><p>
+            Nullsoft - picprep uses NSIS as its windows installer, and winamp 5.0 was used to listen to tunes during the development of picprep. wa5 rocks!
+        </p></div></div></body></html>

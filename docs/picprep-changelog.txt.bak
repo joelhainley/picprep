@@ -1,0 +1,12 @@
+picprep changelog :
+
+version 0.9 : ( 08.16.2004 )
+- Fixed : BPP process initializing freeimage multiple times
+- Fixed : All processes were not properly unloading all image pointers
+- New : added "?" parameter support to all processes allowing for user to request help
+- Updated : Better feedback for problems encountered during execution of scripts
+
+
+
+version 0.8 :
+- Initial Release

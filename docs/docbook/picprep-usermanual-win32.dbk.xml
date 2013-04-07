@@ -1,0 +1,171 @@
+<article id="picprep-usermanual">
+<artheader>
+	<title>picprep</title>
+	<subtitle>picture/image preparation application</subtitle>
+
+<author>
+<firstname>Joel</firstname>
+<surname>Hainley</surname>
+<affiliation>
+<address><email>jhainley-at-myndkryme-dot-com</email></address>
+</affiliation>
+</author>
+
+<edition>win32 - Version 1.1.0 </edition>
+<pubdate>October 17, 2004</pubdate>
+<copyright>
+<year>2004</year>
+<holder>myndKryme Laboratories</holder>
+</copyright>
+</artheader>
+    <section id="name">
+        <title>
+            NAME
+        </title>
+        <para>
+            picprep - image scaling/conversion/resampling application        
+        </para>
+    </section>
+    <section id="synopsis">
+        <title>
+            SYNOPSIS
+        </title>
+        <programlisting>
+        picprep [apfb?]
+            
+        picprep a w=numVal h=numVal src=searchPat dest=searchPat append=sometext
+
+        picprep p r=numVal src=searchPat dest=searchPat append=sometext
+        
+        picprep f src=searchPat dest=searchPat append=sometext
+            
+        picprep b bpp=[8|16|24|32] src=searchPath dest=searchPath append=sometext
+        
+        picprep ?
+        </programlisting>    
+    </section>
+    <section id="availability">
+        <title>
+            AVAILABILITY
+        </title>
+        <para>
+                this application is available on Mac OS X and win32 platforms, if you would like this ported to another platform, please feel free to contact us
+        </para>
+    </section>    
+	<section id="description">
+		<title>
+			DESCRIPTION
+		</title>
+		<para>
+		    the picture prep application is a small graphics utility aimed at quickly prepping large directories of image files. It allows the user to change the bitdepth, scale the images by absolute pixel size, or percentages, as well as being able to convert the image to any of several popular file formats. The application allows a user to drop the newly modified files in a new directory, or to append characters onto the newly created files, preserving the original images.
+		</para>
+		<para>
+            Note : the original purpose of this application was to scale directories of images that came off of my digital camera to make them easier to drop into digital photo albums that I was creating with Album Foundry. I found that the original pictures coming out of the camera were always at least twice as big as they needed to be for my needs. I already had experience working with the FreeImage library so I just used this library to put this application together.
+		</para>
+	</section>
+    <section id="commands">
+        <title>
+            COMMANDS
+        </title>
+        <para>
+            a - instructs picprep to size the new image using an absolute value in pixels, the parameters w, h, src, dest must all be present, the parameters append, and log, are optional. Please refer to the parameters section to see more details about the individual parameters.
+        </para>
+        <para>
+            b - instructs picprep to store the new image in the specified bitdepth. This allows the user to take 32 bit images and convert them to 24, 16, or 8 bit images, allowing for a space savings. The parameters bpp, src, and dest must all be present. The parameters log, and append are optional. Please refer the parameters section for more detail about the individual parameters.
+        </para>
+        <para>
+            f - instructs picprep to convert the source image into a new file format. This allows the user to easily move images between several popular web formats without the need to open up cumbersome paint programs to do simple image conversion. The parameters src and dest are required, the append and log parameters are optional.
+        </para>
+        <para>
+            p - instructs picprep to size the new image using a percentage of the source image, the application can enlarge or reduce the size of the images. The p, src, and dest parameters are required, the append and log parameters are optional.
+        </para>
+        <para>
+        	? - displays application help
+        </para>
+    </section>	
+    <section id="parameters">
+        <title>
+            PARAMETERS
+        </title>
+        <para>
+            append -  characters to append to the newly created file
+        </para>
+        <para>
+            bpp - the desired bitdepth for the new photos
+        </para>
+        <para>
+            dest - either a specific file name, or a specific directory ( if a directory that is different from the source directory is specified, and no append parameter is specified, the files will be saved with the same name as the source filename, if the directories are the same, and no append parameter has been specified, the application will display an error to the user and exit )
+        </para>
+        <para>
+            h - the desired height ( in pixels ) for the finished photo
+        </para>
+        <para>
+            r - the ratio/percentage to scale the picture
+        </para>
+        <para>
+            src - either a specific file name, or a valid wild-card sequence for files in a specific directory, the application will attempt to open the files based upon their extensions. if a format cannot be determined from the extension, or the file cannot be opened, the application will report an error, logging it to the log file if one has been specified, and continue to process
+        </para>
+        <para>
+            w - the desired width ( in pixels ) for the finished photo
+        </para>
+        <para>
+        	? - if used as a parameter to a particular process it will display the help for that process. Use this parameter by itself at any point in the process parameters to see the help for that process
+        </para>
+        <para>
+        
+        </para>
+    </section>    
+    <section id="examples">
+        <title>
+            EXAMPLES
+        </title>
+        <para>
+        converts all files to 24bpp images, appending 24 to the end of each filename, it converts all images that it understands in the directory.
+        <programlisting>    picprep b bpp=24 src=*.* dest=*.* append=24
+        </programlisting>    
+        </para>        
+        <para>
+        converts all jpeg files to png files appending new to the name of the new files.
+        <programlisting>    picprep f src=*.jpeg dest=*.png append=new
+        </programlisting>    
+        </para>
+    </section>
+    <section id="notes">
+        <title>
+            NOTES
+        </title>
+        <para>
+            all commands and parameters are case sensitive.
+        </para>
+    </section>    
+    <section id="bugs">
+        <title>
+            BUGS
+        </title>
+        <para>
+            no known bugs...yet ;-)
+        </para>
+    </section>
+    <section id="website">
+        <title>
+            WEBSITE
+        </title>
+        <para>
+            www.myndkryme.com/product-picprep.html
+        </para>
+    </section>    
+    <section id="credits">
+        <title>
+            ACKNOWLEDGEMENTS
+        </title>
+        <para>
+	   This software uses the FreeImage open source image library. See http://freeimage.sourceforge.net for details. FreeImage is used under the FIPL, version 1.0. Please see the freeimage-license.txt file included with the picprep distribution files for more information.
+        </para>
+        <para>
+            Nullsoft - picprep uses NSIS as its windows installer, and winamp 5.0 was used to listen to tunes during the development of picprep. wa5 rocks!
+        </para>
+        <para>
+	Christopher Bachman : for bringing some errors in the documentation to my attention.        
+        </para>
+    </section>
+</article>

@@ -1,0 +1,53 @@
+picprep changelog :
+
+version 1.1.0 : ( 10.11.2004 )
+
+Details :
+---------
+- New : Support for Mac OS X
+
+------------------------------------------------------------------------------------------------
+
+
+version 1.0.1 : ( 09.26.2004 )
+
+Details :
+---------
+- Updated : in-application documentation now describes help features
+- Updated : in-application documentation now describes aspectratio feature
+- Updated : externel documentation now describes help features
+- Updated : external documentation now describes aspectratio feature
+
+------------------------------------------------------------------------------------------------
+
+version 1.0.0 : ( 09.19.2004 )
+
+Details :
+---------
+- Updated : ensure meaningful process status messages
+- Updated : removed "log" parameter from processing directives
+- UPdated : updated documentation to reflect changes to log parameter
+- Updated : removed all old debug messages from the system so they didn't pop up at odd places
+
+------------------------------------------------------------------------------------------------
+
+version 0.9.0 : ( 09.18.2004 )
+
+Details :
+---------
+- Fixed : BPP process initializing freeimage multiple times
+- Fixed : All processes were not properly unloading all image pointers
+- Fixed : Wildcards without explicit paths work now
+- Fixed : Append being required to process
+- Fixed : Process in now an abstract class
+- Updated : Better feedback for problems encountered during execution of scripts
+- New : added "?" parameter support to all processes allowing for user to request help
+- New : exists method added to args class
+
+------------------------------------------------------------------------------------------------
+
+version 0.8 : ( n/a )
+
+- Initial Release
+
+------------------------------------------------------------------------------------------------

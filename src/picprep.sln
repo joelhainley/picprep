@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "picprep", "picprep.vcproj", "{6537A718-564C-4468-BCD2-DB1F0EFB2B0B}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{6537A718-564C-4468-BCD2-DB1F0EFB2B0B}.Debug.ActiveCfg = Debug|Win32
+		{6537A718-564C-4468-BCD2-DB1F0EFB2B0B}.Debug.Build.0 = Debug|Win32
+		{6537A718-564C-4468-BCD2-DB1F0EFB2B0B}.Release.ActiveCfg = Release|Win32
+		{6537A718-564C-4468-BCD2-DB1F0EFB2B0B}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

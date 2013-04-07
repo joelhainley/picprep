@@ -1,0 +1,9 @@
+@ECHO OFF
+ECHO RUNNING DOCBOOK TRANSLATION PLEASE WAIT
+REM # must be in the docbook xsl directory for this to work
+REM # 
+c:
+cd \docbook\docbook-xsl-1.64.1\html
+java -classpath c:/java/saxon-6.5.3/saxon.jar com.icl.saxon.StyleSheet w:/products/picprep/docs/docbook/picprep-usermanual.dbk.xml docbook.xsl > w:/products/picprep/docs/picprep-usermanual.html
+ECHO TRANSLATION COMPLETED
+ECHO ON

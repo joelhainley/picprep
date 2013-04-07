@@ -1,0 +1,13 @@
+picprep : FileList.o FileInfo.o
+
+
+
+
+
+
+FileList.o : FileInfo.o FileList.cpp FileList.h
+	gcc -c osx/FileList.cpp
+
+FileInfo.o : FileInfo.cpp FileInfo.h
+	gcc -c osx/FileInfo.cpp
+	
